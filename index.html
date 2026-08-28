@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orlando AC Repair & HVAC Services | Book Online 24/7</title>
+<meta name="description" content="Orlando HVAC Air Conditioning provides fast, reliable AC repair, installation, and maintenance for Orlando homeowners. Book online 24/7 — no phone tag required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0b2545;
+    --blue-primary:#13548c;
+    --blue-mid:#1f77b4;
+    --blue-light:#e7f2fb;
+    --orange:#ff7a30;
+    --orange-dark:#e35d0f;
+    --white:#ffffff;
+    --gray-100:#f4f7fa;
+    --gray-500:#5c6b7a;
+    --gray-900:#12202e;
+    --radius:16px;
+    --shadow-soft: 0 8px 24px rgba(11,37,69,0.12);
+    --shadow-hover: 0 16px 36px rgba(11,37,69,0.2);
+    --transition: all .25s cubic-bezier(.4,.0,.2,1);
+    font-size:16px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--gray-900);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Poppins',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    display:inline-block;
+    color:var(--orange-dark);
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.8rem;
+    margin-bottom:12px;
+  }
+  h2{font-size:clamp(1.8rem,3vw,2.5rem);margin:0 0 16px;color:var(--blue-deep);}
+  .lead{color:var(--gray-500);font-size:1.05rem;max-width:640px;}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:15px 30px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:1rem;
+    border:none;
+    cursor:pointer;
+    transition:var(--transition);
+    box-shadow:var(--shadow-soft);
+  }
+  .btn:active{transform:scale(.95);}
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-primary:hover{background:var(--orange-dark);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+  .btn-outline{background:rgba(255,255,255,0.08);color:#fff;border:2px solid rgba(255,255,255,0.7);}
+  .btn-outline:hover{background:#fff;color:var(--blue-deep);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+  .btn-blue{background:var(--blue-primary);color:#fff;}
+  .btn-blue:hover{background:var(--blue-deep);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:1000;
+    background:transparent;
+    transition:var(--transition);
+  }
+  header.scrolled{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    box-shadow:0 2px 18px rgba(11,37,69,0.08);
+  }
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1180px;margin:0 auto;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--blue-deep);
+  }
+  .brand span{color:var(--orange);}
+  .brand-icon{
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--blue-primary),var(--blue-deep));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;
+  }
+  nav ul{
+    display:flex;gap:6px;list-style:none;margin:0;padding:0;align-items:center;
+  }
+  nav a{
+    padding:10px 16px;border-radius:8px;font-weight:600;font-size:.95rem;color:var(--blue-deep);
+    position:relative;transition:var(--transition);
+  }
+  nav a::after{
+    content:'';position:absolute;left:16px;right:16px;bottom:5px;height:2px;background:var(--orange);
+    transform:scaleX(0);transform-origin:left;transition:var(--transition);
+  }
+  nav a:hover::after{transform:scaleX(1);}
+  nav a:hover{color:var(--orange-dark);}
+  .nav-cta{
+    background:var(--orange);color:#fff !important;padding:10px 20px;border-radius:50px;
+  }
+  .nav-cta:hover{background:var(--orange-dark);color:#fff !important;}
+  .nav-cta::after{display:none;}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--blue-deep);cursor:pointer;}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    background:linear-gradient(160deg,var(--blue-deep) 0%,var(--blue-primary) 55%,var(--blue-mid) 100%);
+    color:#fff;overflow:hidden;padding:100px 0 80px;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 20%, rgba(255,122,48,0.35), transparent 45%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;
+    position:relative;z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,4.4vw,3.4rem);
+    margin:0 0 18px;line-height:1.15;
+  }
+  .hero h1 .accent{color:var(--orange);}
+  .hero p.lead{color:rgba(255,255,255,0.85);max-width:520px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px;}
+  .hero-image-wrap{
+    position:relative;border-radius:20px;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.35);
+  }
+  .hero-image-wrap img{
+    width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;
+  }
+  .hero-badge{
+    position:absolute;bottom:16px;left:16px;background:rgba(11,37,69,0.85);
+    backdrop-filter:blur(6px);color:#fff;padding:12px 18px;border-radius:12px;
+    font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:10px;
+  }
+  .hero-badge .dot{width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.25);}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* Services */
+  .services{background:var(--gray-100);}
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;}
+  .service-card{
+    background:#fff;border-radius:var(--radius);padding:32px 26px;box-shadow:var(--shadow-soft);
+    transition:var(--transition);border:1px solid #eef2f6;
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-color:var(--orange);}
+  .icon-circle{
+    width:58px;height:58px;border-radius:14px;background:var(--blue-light);
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;color:var(--blue-primary);
+  }
+  .service-card h3{margin:0 0 10px;color:var(--blue-deep);font-size:1.25rem;}
+  .service-card p{color:var(--gray-500);margin:0 0 18px;}
+  .learn-more{font-weight:700;color:var(--orange-dark);display:inline-flex;align-items:center;gap:6px;}
+  .learn-more span{transition:var(--transition);}
+  .learn-more:hover span{transform:translateX(4px);}
+
+  /* Why choose us */
+  .why{background:#fff;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .why-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:20px;}
+  .why-list li{
+    display:flex;gap:16px;align-items:flex-start;background:var(--gray-100);
+    padding:18px 20px;border-radius:14px;transition:var(--transition);
+  }
+  .why-list li:hover{transform:translateX(6px);box-shadow:var(--shadow-soft);}
+  .why-list .icon{
+    width:44px;height:44px;flex-shrink:0;border-radius:10px;background:var(--orange);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .why-list h4{margin:0 0 4px;color:var(--blue-deep);}
+  .why-list p{margin:0;color:var(--gray-500);font-size:.95rem;}
+  .why-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);}
+
+  /* Service area */
+  .area{background:linear-gradient(180deg,var(--blue-light),#fff);}
+  .area-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;align-items:center;}
+  .neighborhood-list{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0;padding:0;list-style:none;}
+  .neighborhood-list li{
+    background:#fff;border:1px solid #dce8f2;color:var(--blue-primary);font-weight:600;
+    padding:9px 16px;border-radius:50px;font-size:.9rem;transition:var(--transition);
+  }
+  .neighborhood-list li:hover{background:var(--blue-primary);color:#fff;transform:translateY(-3px);box-shadow:var(--shadow-soft);}
+  .area-map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);position:relative;}
+  .area-map img{width:100%;}
+  .area-map .pin{
+    position:absolute;width:16px;height:16px;background:var(--orange);border-radius:50%;
+    border:3px solid #fff;box-shadow:0 0 0 4px rgba(255,122,48,.3);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.25);}100%{transform:scale(1);}}
+
+  /* Reviews */
+  .reviews{background:var(--blue-deep);color:#fff;text-align:center;}
+  .reviews h2{color:#fff;}
+  .reviews .lead{color:rgba(255,255,255,0.75);margin:0 auto;}
+  .carousel{max-width:720px;margin:48px auto 0;position:relative;min-height:220px;}
+  .review-slide{
+    display:none;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--radius);padding:36px;backdrop-filter:blur(4px);
+  }
+  .review-slide.active{display:block;animation:fadeIn .5s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .stars{color:var(--orange);font-size:1.2rem;letter-spacing:3px;margin-bottom:14px;}
+  .review-slide p.quote{font-size:1.1rem;color:#fff;margin:0 0 16px;}
+  .review-author{font-weight:700;color:var(--orange);}
+  .carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:24px;}
+  .carousel-dots button{
+    width:10px;height:10px;border-radius:50%;border:none;background:rgba(255,255,255,0.3);cursor:pointer;transition:var(--transition);
+  }
+  .carousel-dots button.active{background:var(--orange);transform:scale(1.3);}
+
+  /* Process */
+  .process{background:#fff;}
+  .process-row{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:48px;position:relative;}
+  .process-step{text-align:center;position:relative;padding:0 12px;}
+  .process-step .num{
+    width:64px;height:64px;border-radius:50%;background:var(--blue-light);color:var(--blue-primary);
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;margin:0 auto 18px;
+    border:3px solid var(--blue-primary);transition:var(--transition);
+  }
+  .process-step:hover .num{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(-8deg) scale(1.08);}
+  .process-step h3{margin:0 0 8px;color:var(--blue-deep);}
+  .process-step p{color:var(--gray-500);margin:0;font-size:.95rem;}
+
+  /* Final CTA */
+  .final-cta{
+    background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+    color:#fff;
+  }
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .cta-grid h2{color:#fff;}
+  .cta-grid p{color:rgba(255,255,255,0.9);}
+  .final-cta .btn-blue{background:var(--blue-deep);}
+  .final-cta .btn-blue:hover{background:var(--blue-primary);}
+  .booking-form{
+    background:#fff;border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-hover);color:var(--gray-900);
+  }
+  .booking-form h3{margin-top:0;color:var(--blue-deep);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .booking-form input,.booking-form select,.booking-form textarea{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid #dbe3ea;margin-bottom:14px;
+    font-family:inherit;font-size:.95rem;transition:var(--transition);
+  }
+  .booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{
+    outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,122,48,0.15);
+  }
+  .booking-form button{width:100%;justify-content:center;}
+
+  /* Footer */
+  footer{background:var(--blue-deep);color:rgba(255,255,255,0.75);padding:56px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:32px;}
+  footer h4{color:#fff;margin:0 0 16px;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+  footer a:hover{color:var(--orange);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);padding-top:20px;text-align:center;font-size:.85rem;
+  }
+
+  @media (max-width:900px){
+    .hero-grid,.why-grid,.area-grid,.cta-grid{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:1fr;}
+    .process-row{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    nav ul.open{
+      display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:#fff;
+      padding:20px;box-shadow:var(--shadow-soft);gap:4px;
+    }
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">❄</span>
+      Orlando<span> HVAC</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact-book-now.html" class="nav-cta">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--orange);">Orlando's On-Demand HVAC Pro</span>
+        <h1>Orlando AC Repair, Fast — <span class="accent">Book Online in 60 Seconds</span></h1>
+        <p class="lead">Skip the phone tag. Get reliable AC repair, installation, and maintenance from a local Orlando HVAC pro.</p>
+        <div class="hero-actions">
+          <a href="contact-book-now.html" class="btn btn-primary">Request Service Now</a>
+          <a href="tel:+14075551234" class="btn btn-outline">📞 Call (407) 555-1234</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap reveal">
+        <img src="https://placehold.co/640x480/1f77b4/ffffff?text=Orlando+HVAC+Technician+On+Job" alt="Orlando HVAC technician repairing an outdoor AC unit at a residential home">
+        <div class="hero-badge"><span class="dot"></span> Techs available today in Orlando</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>Straightforward HVAC Services</h2>
+        <p class="lead">No upsells, no runaround — just the AC work Orlando homes actually need.</p>
+      </div>
+      <div class="card-grid">
+        <article class="service-card reveal">
+          <div class="icon-circle">🛠️</div>
+          <h3>AC Repair</h3>
+          <p>Same-week fixes for warm air, weird noises, leaks, and units that won't turn on.</p>
+          <a href="services.html" class="learn-more">Learn More <span>→</span></a>
+        </article>
+        <article class="service-card reveal">
+          <div class="icon-circle">📦</div>
+          <h3>Installation</h3>
+          <p>New system? We size and install the right unit for your Florida home, done right the first time.</p>
+          <a href="services.html" class="learn-more">Learn More <span>→</span></a>
+        </article>
+        <article class="service-card reveal">
+          <div class="icon-circle">🧰</div>
+          <h3>Maintenance</h3>
+          <p>Seasonal tune-ups that catch small problems before they become expensive summer breakdowns.</p>
+          <a href="services.html" class="learn-more">Learn More <span>→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why">
+    <div class="container why-grid">
+      <div class="reveal">
+        <span class="eyebrow">Why Orlando Trusts Us</span>
+        <h2>Licensed. Local. Actually Fast.</h2>
+        <ul class="why-list">
+          <li>
+            <div class="icon">✔</div>
+            <div><h4>Licensed &amp; Insured</h4><p>Florida-licensed technicians who carry full insurance on every job.</p></div>
+          </li>
+          <li>
+            <div class="icon">📍</div>
+            <div><h4>Locally Owned</h4><p>Based in Orlando, not a call center. We know the neighborhoods and the heat.</p></div>
+          </li>
+          <li>
+            <div class="icon">⚡</div>
+            <div><h4>Fast Response</h4><p>Most repair requests get a same-day or next-day appointment window.</p></div>
+          </li>
+          <li>
+            <div class="icon">💵</div>
+            <div><h4>Upfront Pricing</h4><p>You'll know the cost before we start — no surprise line items later.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="why-img reveal">
+        <img src="https://placehold.co/600x520/0b2545/ffffff?text=Licensed+Orlando+HVAC+Tech" alt="Licensed Orlando HVAC technician smiling next to service van">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="area" id="service-area">
+    <div class="container area-grid">
+      <div class="reveal">
+        <span class="eyebrow">Where We Work</span>
+        <h2>Serving Orlando &amp; Surrounding Neighborhoods</h2>
+        <p class="lead">From downtown to the suburbs, our trucks are already in your area most days of the week.</p>
+        <ul class="neighborhood-list">
+          <li>Winter Park</li>
+          <li>Lake Nona</li>
+          <li>Baldwin Park</li>
+          <li>College Park</li>
+          <li>Dr. Phillips</li>
+          <li>Windermere</li>
+          <li>Downtown Orlando</li>
+          <li>Avalon Park</li>
+        </ul>
+        <a href="service-area.html" class="btn btn-blue">View Full Service Area</a>
+      </div>
+      <div class="area-map reveal">
+        <img src="https://placehold.co/640x460/e7f2fb/13548c?text=Orlando+Service+Area+Map" alt="Map of Orlando area neighborhoods covered by our HVAC service">
+        <span class="pin" style="top:38%;left:44%;"></span>
+        <span class="pin" style="top:55%;left:62%;"></span>
+        <span class="pin" style="top:28%;left:60%;"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--orange);">Real Orlando Customers</span>
+        <h2>What Homeowners Say</h2>
+        <p class="lead">We show up, fix it right, and treat your home like our own.</p>
+      </div>
+      <div class="carousel reveal" id="carousel">
+        <div class="review-slide active">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Booked online at 9pm, had a tech at my house by 11am the next day. Fixed in under an hour."</p>
+          <div class="review-author">— Maria G., Winter Park</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Finally an HVAC company that tells you the price upfront. No games, no pressure to buy a new unit."</p>
+          <div class="review-author">— David R., Lake Nona</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Our AC died during a heatwave and they got us cooled down same day. Absolute lifesavers."</p>
+          <div class="review-author">— Priya S., College Park</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★☆</div>
+          <p class="quote">"Professional, on time, and cleaned up after the install. Would book again."</p>
+          <div class="review-author">— Tom H., Dr. Phillips</div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="eyebrow">How It Works</span>
+        <h2>Three Steps to Cool Air</h2>
+      </div>
+      <div class="process-row">
+        <div class="process-step reveal">
+          <div class="num">1</div>
+          <h3>Request</h3>
+          <p>Tell us what's going on in a 60-second online form — no phone tag needed.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="num">2</div>
+          <h3>Confirm</h3>
+          <p>We text or call to confirm your appointment window, usually same-day.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="num">3</div>
+          <h3>Get Cooled</h3>
+          <p>Our tech arrives, diagnoses, and fixes it — with upfront pricing the whole time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="book">
+    <div class="container cta-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--blue-deep);">Ready When You Are</span>
+        <h2>Don't Sweat It — Book Your AC Service Now</h2>
+        <p>Fast scheduling, upfront pricing, and technicians who actually show up on time.</p>
+        <a href="tel:+14075551234" class="btn btn-blue">📞 Call (407) 555-1234</a>
+      </div>
+      <form class="booking-form reveal" id="bookingForm">
+        <h3>Request Service</h3>
+        <div class="form-row">
+          <input type="text" placeholder="Full Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+        <input type="text" placeholder="Address / Neighborhood" required>
+        <select required>
+          <option value="">Service Needed</option>
+          <option>AC Repair</option>
+          <option>Installation</option>
+          <option>Maintenance</option>
+        </select>
+        <textarea rows="3" placeholder="Tell us what's happening with your AC..."></textarea>
+        <button type="submit" class="btn btn-primary">Request Service Now</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:12px;">
+          <span class="brand-icon">❄</span> Orlando<span style="color:var(--orange);"> HVAC</span>
+        </div>
+        <p>Locally owned, licensed HVAC repair, installation, and maintenance serving Orlando, FL homeowners since day one.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="service-area.html">Service Area</a></li>
+          <li><a href="reviews-testimonials.html">Reviews</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact-book-now.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+14075551234">(407) 555-1234</a></li>
+          <li><a href="mailto:hello@orlandohvac.example">hello@orlandohvac.example</a></li>
+          <li>Orlando, FL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Orlando HVAC Air Conditioning. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header blur on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  menuToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+
+  // Scroll reveal via IntersectionObserver
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => observer.observe(el));
+
+  // Reviews carousel (signature interactive moment)
+  const slides = document.querySelectorAll('.review-slide');
+  const dotsWrap = document.getElementById('carouselDots');
+  let current = 0;
+  let timer;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if(i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(index){
+    slides[current].classList.remove('active');
+    dotsWrap.children[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dotsWrap.children[current].classList.add('active');
+    resetTimer();
+  }
+
+  function nextSlide(){
+    goTo((current + 1) % slides.length);
+  }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 5500);
+  }
+  resetTimer();
+
+  // Booking form submit (placeholder)
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Request Sent ✓';
+    btn.style.background = '#2e9e5b';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      this.reset();
+    }, 2500);
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
