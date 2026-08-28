@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Reviews | Orlando AC Repair & HVAC Company</title>
+<meta name="description" content="See why Orlando homeowners trust us for AC repair, installation, and maintenance. Read real customer reviews and book your service today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a2540;
+    --blue-700:#123a63;
+    --blue-500:#1f6fb2;
+    --blue-100:#eaf4fc;
+    --blue-050:#f5faff;
+    --orange-500:#ff8a34;
+    --orange-600:#ef6c14;
+    --white:#ffffff;
+    --gray-600:#5c6b7a;
+    --gray-800:#2c3644;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(10,37,64,0.12);
+    --shadow-lg:0 20px 45px rgba(10,37,64,0.2);
+    font-size:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--blue-050);
+    color:var(--gray-800);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.logo{font-family:'Poppins',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(10,37,64,0.85);
+    transition:background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+  }
+  header.scrolled{
+    background:rgba(10,37,64,0.92);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto;}
+  .logo{color:var(--white);font-weight:800;font-size:1.3rem;letter-spacing:.5px;}
+  .logo span{color:var(--orange-500);}
+  .nav-links{display:flex;gap:30px;list-style:none;}
+  .nav-links a{
+    color:var(--white);font-weight:500;font-size:.95rem;position:relative;padding:6px 0;
+    transition:color .25s ease;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--orange-500);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover{color:var(--orange-500);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active{color:var(--orange-500);}
+  .nav-cta{
+    background:var(--orange-500);color:var(--white);padding:10px 20px;border-radius:50px;font-weight:600;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .nav-cta:hover{background:var(--orange-600);transform:translateY(-2px);box-shadow:0 8px 18px rgba(255,138,52,0.4);}
+  .nav-cta:active{transform:scale(.96);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer;}
+
+  @media (max-width:860px){
+    .nav-links{
+      position:fixed;top:68px;left:0;right:0;background:var(--navy);flex-direction:column;
+      padding:20px 24px;gap:18px;transform:translateY(-150%);transition:transform .35s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  /* Buttons general */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 30px;border-radius:50px;font-weight:600;border:none;cursor:pointer;
+    font-size:1rem;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn:active{transform:scale(.95);}
+  .btn-primary{background:var(--orange-500);color:var(--white);box-shadow:0 8px 20px rgba(255,138,52,0.3);}
+  .btn-primary:hover{background:var(--orange-600);transform:translateY(-3px);box-shadow:0 14px 28px rgba(255,138,52,0.45);}
+  .btn-outline{background:transparent;border:2px solid var(--white);color:var(--white);}
+  .btn-outline:hover{background:var(--white);color:var(--navy);transform:translateY(-3px);}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--blue-700) 55%, var(--blue-500) 100%);
+    color:var(--white);text-align:center;padding:100px 24px 70px;
+  }
+  .hero h1{font-size:clamp(2.1rem,5vw,3.2rem);margin-bottom:16px;font-weight:800;}
+  .hero p{max-width:640px;margin:0 auto;font-size:1.15rem;color:rgba(255,255,255,0.85);}
+
+  /* Aggregate rating */
+  .rating-wrap{
+    display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:stretch;margin-top:44px;
+  }
+  .rating-card{
+    background:var(--white);border-radius:var(--radius);padding:26px 32px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;align-items:center;gap:8px;min-width:200px;color:var(--gray-800);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .rating-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+  .rating-card .score{font-size:2.4rem;font-weight:800;color:var(--navy);}
+  .stars{color:var(--orange-500);font-size:1.3rem;letter-spacing:2px;}
+  .rating-card .platform{font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--blue-500);}
+  .rating-card .count{font-size:.85rem;color:var(--gray-600);}
+
+  /* Section headings */
+  .section-head{text-align:center;max-width:640px;margin:0 auto 50px;}
+  .section-head h2{font-size:clamp(1.7rem,3.5vw,2.4rem);color:var(--navy);margin-bottom:12px;}
+  .section-head p{color:var(--gray-600);}
+  .eyebrow{color:var(--orange-500);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.8rem;display:block;margin-bottom:10px;}
+
+  /* Filter tabs */
+  .filter-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:44px;}
+  .filter-tab{
+    background:var(--white);border:1px solid var(--blue-100);color:var(--blue-700);padding:10px 22px;
+    border-radius:50px;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .25s ease;
+  }
+  .filter-tab:hover{border-color:var(--orange-500);color:var(--orange-600);transform:translateY(-2px);}
+  .filter-tab.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+
+  /* Reviews grid */
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;}
+  .review-card{
+    background:var(--white);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:12px;transition:transform .35s ease, box-shadow .35s ease;
+    border-top:4px solid var(--orange-500);
+  }
+  .review-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+  .review-top{display:flex;align-items:center;gap:14px;}
+  .review-top img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:3px solid var(--blue-100);}
+  .review-name{font-weight:700;color:var(--navy);font-size:1rem;}
+  .review-loc{font-size:.82rem;color:var(--gray-600);}
+  .review-card .stars{font-size:1.05rem;}
+  .review-card p.quote{color:var(--gray-800);font-size:.95rem;}
+  .service-tag{
+    align-self:flex-start;background:var(--blue-100);color:var(--blue-700);font-size:.72rem;font-weight:700;
+    padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;
+  }
+
+  /* Case study */
+  .case-study{background:var(--navy);color:var(--white);}
+  .case-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;}
+  @media(max-width:860px){.case-grid{grid-template-columns:1fr;}}
+  .case-content h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:16px;}
+  .case-content p{color:rgba(255,255,255,0.8);margin-bottom:14px;}
+  .case-content .stars{margin-bottom:14px;}
+  .case-quote{border-left:3px solid var(--orange-500);padding-left:16px;font-style:italic;color:var(--white);margin-top:10px;}
+
+  .ba-slider{
+    position:relative;width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-lg);user-select:none;
+  }
+  .ba-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
+  .ba-before-wrap{position:absolute;top:0;left:0;height:100%;width:50%;overflow:hidden;border-right:3px solid var(--orange-500);}
+  .ba-before-wrap img{width:auto;max-width:none;height:100%;object-fit:cover;}
+  .ba-label{position:absolute;top:14px;background:rgba(10,37,64,0.75);color:var(--white);padding:4px 12px;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+  .ba-label.before{left:14px;}
+  .ba-label.after{right:14px;}
+  .ba-range{
+    position:absolute;top:0;left:0;width:100%;height:100%;margin:0;appearance:none;background:transparent;cursor:ew-resize;
+  }
+  .ba-range::-webkit-slider-thumb{
+    appearance:none;width:44px;height:44px;border-radius:50%;background:var(--orange-500);
+    border:4px solid var(--white);box-shadow:0 4px 12px rgba(0,0,0,0.35);cursor:ew-resize;
+    margin-top:0;position:relative;top:calc(50% - 22px);
+  }
+  .ba-range::-moz-range-thumb{
+    width:44px;height:44px;border-radius:50%;background:var(--orange-500);border:4px solid var(--white);
+    box-shadow:0 4px 12px rgba(0,0,0,0.35);cursor:ew-resize;
+  }
+  .ba-range::-webkit-slider-runnable-track{background:transparent;}
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(120deg,var(--orange-600),var(--orange-500));
+    color:var(--white);text-align:center;
+  }
+  .cta-banner h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:14px;}
+  .cta-banner p{color:rgba(255,255,255,0.9);margin-bottom:30px;font-size:1.05rem;}
+  .cta-actions{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  .cta-actions .btn-primary{background:var(--navy);}
+  .cta-actions .btn-primary:hover{background:#081b31;}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* Footer */
+  footer{background:var(--navy);color:rgba(255,255,255,0.75);padding:60px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:40px;}
+  footer h3{color:var(--white);font-size:1.05rem;margin-bottom:16px;}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:10px;}
+  footer a{color:rgba(255,255,255,0.75);transition:color .2s ease;}
+  footer a:hover{color:var(--orange-500);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:20px;text-align:center;font-size:.85rem;}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav>
+    <a href="index.html" class="logo">Sunstate<span>Air</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="service-area.html">Service Area</a></li>
+      <li><a href="reviews-testimonials.html" class="active">Reviews</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact-book-now.html" class="nav-cta">Book Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow reveal">Real Neighbors, Real Reviews</span>
+      <h1 class="reveal">What Orlando Homeowners Are Saying</h1>
+      <p class="reveal">No stock reviews here — just honest feedback from real families across Lake Nona, Winter Park, Dr. Phillips, and beyond who trusted us with their AC.</p>
+
+      <div class="rating-wrap">
+        <div class="rating-card reveal">
+          <div class="score">4.9</div>
+          <div class="stars">★★★★★</div>
+          <div class="platform">Google Reviews</div>
+          <div class="count">612 reviews</div>
+        </div>
+        <div class="rating-card reveal">
+          <div class="score">4.8</div>
+          <div class="stars">★★★★★</div>
+          <div class="platform">Yelp</div>
+          <div class="count">184 reviews</div>
+        </div>
+        <div class="rating-card reveal">
+          <div class="score">98%</div>
+          <div class="stars">★★★★★</div>
+          <div class="platform">Would Recommend</div>
+          <div class="count">based on 800+ jobs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Customer Stories</span>
+        <h2>Hear It Straight From Our Customers</h2>
+        <p>Filter by the type of service to see how we've helped homeowners just like you.</p>
+      </div>
+
+      <div class="filter-tabs reveal">
+        <button class="filter-tab active" data-filter="all">All Reviews</button>
+        <button class="filter-tab" data-filter="repair">AC Repair</button>
+        <button class="filter-tab" data-filter="install">Installation</button>
+        <button class="filter-tab" data-filter="maintenance">Maintenance</button>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGrid">
+
+        <article class="review-card reveal" data-category="repair">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=M" alt="Photo of Maria, homeowner in Lake Nona">
+            <div>
+              <div class="review-name">Maria T.</div>
+              <div class="review-loc">Lake Nona</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Our AC died on the hottest day of July and they had a tech out in 90 minutes. Fixed and ice-cold again same day."</p>
+          <span class="service-tag">AC Repair</span>
+        </article>
+
+        <article class="review-card reveal" data-category="install">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=J" alt="Photo of James, homeowner in Winter Park">
+            <div>
+              <div class="review-name">James R.</div>
+              <div class="review-loc">Winter Park</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"New system install was quick, clean, and the crew actually explained what they were doing instead of rushing off."</p>
+          <span class="service-tag">Installation</span>
+        </article>
+
+        <article class="review-card reveal" data-category="maintenance">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=K" alt="Photo of Karen, homeowner in College Park">
+            <div>
+              <div class="review-name">Karen D.</div>
+              <div class="review-loc">College Park</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"We've been on their maintenance plan for 3 years now — zero surprise breakdowns since. Worth every penny."</p>
+          <span class="service-tag">Maintenance</span>
+        </article>
+
+        <article class="review-card reveal" data-category="repair">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=D" alt="Photo of Derek, homeowner in Baldwin Park">
+            <div>
+              <div class="review-name">Derek S.</div>
+              <div class="review-loc">Baldwin Park</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Honest pricing — told me it was a simple capacitor, didn't try to upsell me a whole new unit like the last guy did."</p>
+          <span class="service-tag">AC Repair</span>
+        </article>
+
+        <article class="review-card reveal" data-category="install">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=A" alt="Photo of Alicia, homeowner in Dr. Phillips">
+            <div>
+              <div class="review-name">Alicia M.</div>
+              <div class="review-loc">Dr. Phillips</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Got quotes from three companies. These guys were the only ones who actually sized the unit to our home properly."</p>
+          <span class="service-tag">Installation</span>
+        </article>
+
+        <article class="review-card reveal" data-category="maintenance">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=T" alt="Photo of Tom, homeowner in Windermere">
+            <div>
+              <div class="review-name">Tom W.</div>
+              <div class="review-loc">Windermere</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Tune-up caught a refrigerant leak before it became a real problem. That's the kind of thing that earns loyalty."</p>
+          <span class="service-tag">Maintenance</span>
+        </article>
+
+        <article class="review-card reveal" data-category="repair">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=S" alt="Photo of Sandra, homeowner in Metrowest">
+            <div>
+              <div class="review-name">Sandra P.</div>
+              <div class="review-loc">Metrowest</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Technician was polite, wore shoe covers in my house, and cleaned up after. Small things that matter a lot."</p>
+          <span class="service-tag">AC Repair</span>
+        </article>
+
+        <article class="review-card reveal" data-category="install">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=B" alt="Photo of Brian, homeowner in Thornton Park">
+            <div>
+              <div class="review-name">Brian K.</div>
+              <div class="review-loc">Thornton Park</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Financing option made the new install painless. Our electric bill dropped noticeably the first month."</p>
+          <span class="service-tag">Installation</span>
+        </article>
+
+        <article class="review-card reveal" data-category="maintenance">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=N" alt="Photo of Nicole, homeowner in Avalon Park">
+            <div>
+              <div class="review-name">Nicole F.</div>
+              <div class="review-loc">Avalon Park</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Reminder texts before every maintenance visit. Never had to chase them down for scheduling once."</p>
+          <span class="service-tag">Maintenance</span>
+        </article>
+
+        <article class="review-card reveal" data-category="repair">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=G" alt="Photo of Gary, homeowner in Hunters Creek">
+            <div>
+              <div class="review-name">Gary L.</div>
+              <div class="review-loc">Hunters Creek</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Weekend emergency call and they still showed up within the hour, no overtime gouging on the invoice either."</p>
+          <span class="service-tag">AC Repair</span>
+        </article>
+
+        <article class="review-card reveal" data-category="install">
+          <div class="review-top">
+            <img src="https://placehold.co/100x100?text=E" alt="Photo of Emily, homeowner in Conway">
+            <div>
+              <div class="review-name">Emily H.</div>
+              <div class="review-loc">Conway</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Replaced our 20-year-old unit with something so much quieter, we forget it's even running."</p>
+          <span class="service-tag">Installation</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study">
+    <div class="container case-grid">
+      <div class="case-content reveal">
+        <span class="eyebrow">Customer Spotlight</span>
+        <h2>From No AC in July to Ice-Cold Comfort in 3 Hours</h2>
+        <p>The Alvarez family in Dr. Phillips woke up to a 84°F house on a Saturday morning — their 15-year-old system had finally given out. Our team diagnosed a failed compressor within 30 minutes and had a properly sized replacement unit installed and running by early afternoon.</p>
+        <div class="stars">★★★★★</div>
+        <p class="case-quote">"They didn't just fix it — they explained why our old unit kept struggling and helped us pick a system that actually fits our house. Drag the slider to see the difference our new install made to the equipment alone!"</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:.85rem;">— The Alvarez Family, Dr. Phillips</p>
+      </div>
+      <div class="reveal">
+        <div class="ba-slider" id="baSlider">
+          <img class="ba-img" src="https://placehold.co/700x525/1f6fb2/ffffff?text=After%3A+New+System+Installed" alt="After photo: newly installed clean HVAC condenser unit">
+          <div class="ba-before-wrap" id="baWrap">
+            <img class="ba-img ba-before" src="https://placehold.co/700x525/5c6b7a/ffffff?text=Before%3A+Old+Failing+Unit" alt="Before photo: old rusted failing HVAC condenser unit">
+          </div>
+          <span class="ba-label before">Before</span>
+          <span class="ba-label after">After</span>
+          <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Drag to compare before and after photos">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="reveal">Join Our Happy Customers — Book Your Service Today</h2>
+      <p class="reveal">Same-day appointments available across the Orlando metro area.</p>
+      <div class="cta-actions reveal">
+        <a href="contact-book-now.html" class="btn btn-primary">Book Your Service</a>
+        <a href="tel:+14075550199" class="btn btn-outline">📞 Call (407) 555-0199</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Sunstate Air</h3>
+        <p>Trusted Orlando AC repair, installation, and maintenance since 2009.</p>
+      </div>
+      <div>
+        <h3>Navigate</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="service-area.html">Service Area</a></li>
+          <li><a href="reviews-testimonials.html">Reviews</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact-book-now.html">Contact / Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+14075550199">(407) 555-0199</a></li>
+          <li><a href="mailto:info@sunstateair.com">info@sunstateair.com</a></li>
+          <li>Serving Greater Orlando, FL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Sunstate Air HVAC Co. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header blur
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => observer.observe(el));
+
+  // Testimonial filter
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const reviewCards = document.querySelectorAll('.review-card');
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      reviewCards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+
+  // Before/After slider
+  const baRange = document.getElementById('baRange');
+  const baWrap = document.getElementById('baWrap');
+  function updateSlider(val){
+    baWrap.style.width = val + '%';
+  }
+  baRange.addEventListener('input', (e) => updateSlider(e.target.value));
+  updateSlider(50);
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
