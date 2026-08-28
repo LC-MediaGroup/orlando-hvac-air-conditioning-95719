@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Licensed Orlando HVAC Contractor</title>
+<meta name="description" content="Meet the locally owned, licensed HVAC team behind Orlando's fast, reliable AC repair and installation services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0b2942;
+    --blue:#1a4d75;
+    --blue-light:#eaf3f9;
+    --orange:#f2793a;
+    --orange-dark:#d85f22;
+    --white:#ffffff;
+    --gray:#5c6b76;
+    --bg:#f7fafc;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(11,41,66,0.12);
+    --transition:.3s cubic-bezier(.4,0,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--blue-deep);
+    background:var(--bg);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Poppins',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:1000;
+    background:transparent;
+    transition:background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+  }
+  header.scrolled{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(11,41,66,0.08);
+  }
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Poppins',sans-serif;font-weight:800;font-size:1.3rem;
+    color:var(--blue-deep);
+  }
+  .logo span{color:var(--orange);}
+  nav ul{display:flex;list-style:none;gap:8px;align-items:center;}
+  nav ul li a{
+    display:inline-block;padding:10px 16px;border-radius:10px;
+    font-weight:500;font-size:.95rem;color:var(--blue-deep);
+    position:relative;transition:color var(--transition), background var(--transition);
+  }
+  nav ul li a:hover{background:var(--blue-light);color:var(--orange-dark);}
+  nav ul li a.active{color:var(--orange);font-weight:600;}
+  .nav-cta{
+    background:var(--orange)!important;color:#fff!important;
+    padding:10px 20px!important;border-radius:30px!important;
+  }
+  .nav-cta:hover{background:var(--orange-dark)!important;transform:translateY(-2px);}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--blue-deep);}
+
+  @media(max-width:860px){
+    nav ul{
+      position:fixed;top:70px;right:0;left:0;background:#fff;flex-direction:column;
+      padding:20px;gap:4px;box-shadow:0 10px 20px rgba(0,0,0,0.08);
+      transform:translateY(-150%);opacity:0;transition:transform var(--transition), opacity var(--transition);
+    }
+    nav ul.open{transform:translateY(0);opacity:1;}
+    nav ul li{width:100%;}
+    nav ul li a{display:block;}
+    .menu-toggle{display:block;}
+  }
+
+  /* BUTTONS */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 30px;border-radius:30px;font-weight:600;
+    border:none;cursor:pointer;font-size:1rem;
+    transition:transform .15s ease, box-shadow var(--transition), background var(--transition);
+  }
+  .btn:active{transform:scale(.95);}
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(242,121,58,0.35);}
+  .btn-primary:hover{background:var(--orange-dark);box-shadow:0 10px 26px rgba(242,121,58,0.5);transform:translateY(-3px);}
+  .btn-outline{background:transparent;border:2px solid #fff;color:#fff;}
+  .btn-outline:hover{background:#fff;color:var(--blue-deep);transform:translateY(-3px);}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg,var(--blue-deep),var(--blue) 70%);
+    color:#fff;padding:110px 0 90px;text-align:center;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(242,121,58,.25),transparent 70%);
+    top:-200px;right:-150px;
+  }
+  .hero h1{font-size:clamp(2rem,5vw,3.2rem);max-width:850px;margin:0 auto 18px;position:relative;z-index:1;}
+  .hero p{max-width:600px;margin:0 auto;color:#cfe0ec;font-size:1.1rem;position:relative;z-index:1;}
+
+  /* SECTION GENERIC */
+  section{padding:90px 0;}
+  .section-tag{
+    color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;margin-bottom:10px;display:block;
+  }
+  .section-title{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:20px;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* STORY */
+  .story{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .story img{border-radius:var(--radius);box-shadow:var(--shadow);width:100%;}
+  .story p{color:var(--gray);margin-bottom:16px;font-size:1.05rem;}
+  .signature{color:var(--blue-deep);font-family:'Poppins',sans-serif;font-weight:700;margin-top:20px;}
+
+  @media(max-width:860px){
+    .story{grid-template-columns:1fr;}
+  }
+
+  /* CREDENTIALS */
+  .credentials{background:var(--blue-light);}
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px;
+  }
+  .stat-card{
+    background:#fff;border-radius:var(--radius);padding:30px 20px;text-align:center;
+    box-shadow:var(--shadow);transition:transform var(--transition), box-shadow var(--transition);
+  }
+  .stat-card:hover{transform:translateY(-8px);box-shadow:0 16px 36px rgba(11,41,66,0.18);}
+  .stat-card .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.2rem;color:var(--orange);}
+  .stat-card .label{color:var(--blue-deep);font-weight:600;margin-top:6px;}
+
+  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .badge-card{
+    perspective:1200px;height:180px;cursor:pointer;
+  }
+  .badge-inner{
+    position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;
+  }
+  .badge-card.flipped .badge-inner{transform:rotateY(180deg);}
+  .badge-front,.badge-back{
+    position:absolute;inset:0;backface-visibility:hidden;
+    border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:20px;text-align:center;box-shadow:var(--shadow);
+  }
+  .badge-front{background:#fff;color:var(--blue-deep);}
+  .badge-front .icon{font-size:2rem;margin-bottom:10px;}
+  .badge-back{background:var(--blue-deep);color:#fff;transform:rotateY(180deg);font-size:.9rem;}
+  .badge-hint{font-size:.75rem;color:var(--gray);margin-top:8px;}
+
+  @media(max-width:860px){
+    .stats-grid,.badges{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){
+    .stats-grid,.badges{grid-template-columns:1fr;}
+  }
+
+  /* TEAM */
+  .team-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
+  }
+  .team-card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    transition:transform var(--transition), box-shadow var(--transition);
+  }
+  .team-card:hover{transform:translateY(-10px);box-shadow:0 18px 40px rgba(11,41,66,0.2);}
+  .team-card img{width:100%;height:240px;object-fit:cover;}
+  .team-info{padding:20px;}
+  .team-info h3{font-size:1.15rem;margin-bottom:4px;}
+  .team-role{color:var(--orange);font-weight:600;font-size:.9rem;margin-bottom:10px;}
+  .team-info p{color:var(--gray);font-size:.92rem;}
+
+  @media(max-width:860px){.team-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.team-grid{grid-template-columns:1fr;}}
+
+  /* COMMUNITY */
+  .community{
+    background:linear-gradient(135deg,var(--blue),var(--blue-deep));color:#fff;text-align:center;
+  }
+  .community .section-title{color:#fff;}
+  .community p{max-width:700px;margin:0 auto;color:#d7e6f0;font-size:1.05rem;}
+  .community .section-tag{color:var(--orange);}
+
+  /* CTA BANNER */
+  .cta-banner{
+    background:var(--orange);color:#fff;text-align:center;padding:70px 0;position:relative;overflow:hidden;
+  }
+  .cta-banner::before{
+    content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2),transparent 60%);
+  }
+  .cta-banner h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:16px;position:relative;z-index:1;}
+  .cta-banner p{margin-bottom:30px;color:#fff3ea;position:relative;z-index:1;}
+  .cta-btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+  .cta-banner .btn-primary{background:#fff;color:var(--orange-dark);box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+  .cta-banner .btn-primary:hover{background:var(--blue-deep);color:#fff;}
+
+  /* FOOTER */
+  footer{background:var(--blue-deep);color:#cfe0ec;padding:50px 0 20px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:30px;}
+  footer h4{color:#fff;margin-bottom:14px;font-family:'Poppins',sans-serif;}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:8px;}
+  footer ul li a{color:#cfe0ec;transition:color var(--transition);}
+  footer ul li a:hover{color:var(--orange);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:18px;text-align:center;font-size:.85rem;color:#9fb6c6;}
+  @media(max-width:700px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">Sunshine<span>Air</span> HVAC</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact-book-now.html" class="nav-cta">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1 class="reveal">Locally Owned. Fully Licensed. Orlando's Trusted AC Pro.</h1>
+    <p class="reveal">A neighborhood HVAC team that shows up on time, tells it straight, and stands behind every job.</p>
+  </div>
+</section>
+
+<section id="story">
+  <div class="container story">
+    <img class="reveal" src="https://placehold.co/560x420?text=Owner+On+Job+Site" alt="Owner of Sunshine Air HVAC standing beside a service van in Orlando">
+    <div class="reveal">
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">Why We Started This Company</h2>
+      <p>[Placeholder: Owner name] started this company after years of watching Orlando homeowners get overcharged and under-informed by big out-of-town chains. Since [year], we've grown from a single truck to a full crew, but the mission hasn't changed — honest diagnostics, fair pricing, and real people answering the phone. We've cooled down more than [number]+ Central Florida homes, and we still show up to jobs ourselves. This is a hands-on business, not a franchise script.</p>
+      <p class="signature">— [Owner Name], Founder</p>
+    </div>
+  </div>
+</section>
+
+<section class="credentials" id="credentials">
+  <div class="container">
+    <span class="section-tag reveal">Credentials</span>
+    <h2 class="section-title reveal">Licensed, Insured, and Ready When You Need Us</h2>
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="num">15+</div><div class="label">Years in Orlando</div></div>
+      <div class="stat-card reveal"><div class="num">100%</div><div class="label">Licensed &amp; Insured</div></div>
+      <div class="stat-card reveal"><div class="num">24/7</div><div class="label">Emergency Availability</div></div>
+    </div>
+    <p class="reveal" style="text-align:center;color:var(--gray);margin-bottom:10px;">Tap a badge for the details behind it.</p>
+    <div class="badges">
+      <div class="badge-card reveal" tabindex="0">
+        <div class="badge-inner">
+          <div class="badge-front"><div class="icon">📜</div><strong>State Licensed</strong></div>
+          <div class="badge-back">FL HVAC License #[XXXXXXX] — verified active, renewed annually.</div>
+        </div>
+      </div>
+      <div class="badge-card reveal" tabindex="0">
+        <div class="badge-inner">
+          <div class="badge-front"><div class="icon">🛡️</div><strong>Fully Insured</strong></div>
+          <div class="badge-back">General liability &amp; workers' comp coverage on every job, every technician.</div>
+        </div>
+      </div>
+      <div class="badge-card reveal" tabindex="0">
+        <div class="badge-inner">
+          <div class="badge-front"><div class="icon">🎓</div><strong>EPA Certified</strong></div>
+          <div class="badge-back">Certified for refrigerant handling per EPA Section 608 standards.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="container">
+    <span class="section-tag reveal">Meet The Crew</span>
+    <h2 class="section-title reveal">The People Who'll Be At Your Door</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img src="https://placehold.co/400x300?text=Technician+Repairing+Unit" alt="Lead technician repairing an outdoor AC condenser unit">
+        <div class="team-info">
+          <h3>[Tech Name]</h3>
+          <div class="team-role">Lead Technician, 10 yrs</div>
+          <p>Grew up in Orlando, knows every neighborhood's older AC systems inside and out.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://placehold.co/400x300?text=Technician+With+Toolbox" alt="Installation technician with toolbox next to a new HVAC unit">
+        <div class="team-info">
+          <h3>[Tech Name]</h3>
+          <div class="team-role">Install Specialist, 7 yrs</div>
+          <p>Handles full-system installs and makes sure every unit is sized right the first time.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://placehold.co/400x300?text=Dispatcher+On+Phone" alt="Friendly office coordinator answering the phone at the shop">
+        <div class="team-info">
+          <h3>[Name]</h3>
+          <div class="team-role">Office &amp; Scheduling</div>
+          <p>The friendly voice on the phone who keeps every appointment on time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="community" id="community">
+  <div class="container">
+    <span class="section-tag reveal">Community Commitment</span>
+    <h2 class="section-title reveal">Rooted In Orlando, Not Just Working Here</h2>
+    <p class="reveal">We sponsor local youth sports teams, donate spare units to neighbors in need each summer, and hire techs from right here in Central Florida. Our philosophy is simple: treat every home like it's a neighbor's, because it usually is.</p>
+  </div>
+</section>
+
+<section class="cta-banner" id="cta">
+  <div class="container">
+    <h2>Work With a Team Orlando Trusts</h2>
+    <p>Fast scheduling, honest pricing, and a crew that actually picks up the phone.</p>
+    <div class="cta-btns">
+      <a href="contact-book-now.html" class="btn btn-primary">Book Now</a>
+      <a href="tel:+14075551234" class="btn btn-outline">Call (407) 555-1234</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>Sunshine Air HVAC</h4>
+      <p>Locally owned and operated, proudly serving Orlando and surrounding communities since day one.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+14075551234">(407) 555-1234</a></li>
+        <li><a href="mailto:info@sunshineairhvac.com">info@sunshineairhvac.com</a></li>
+        <li><a href="contact-book-now.html">Book Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 Sunshine Air HVAC. All rights reserved. Licensed &amp; Insured in the State of Florida.</div>
+</footer>
+
+<script>
+  // Sticky header blur on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  menuToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Signature interactive moment: flip credential badges
+  document.querySelectorAll('.badge-card').forEach(card => {
+    const toggle = () => card.classList.toggle('flipped');
+    card.addEventListener('click', toggle);
+    card.addEventListener('keypress', (e) => { if(e.key === 'Enter') toggle(); });
+  });
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
