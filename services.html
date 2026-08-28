@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC Repair, Installation & Maintenance in Orlando, FL</title>
+<meta name="description" content="Expert AC repair, installation, and maintenance services in Orlando. Fast response, upfront pricing, licensed technicians. Book online today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-950:#071b2e;
+    --blue-900:#0c2c47;
+    --blue-800:#123a5e;
+    --blue-700:#1a4d7a;
+    --blue-500:#2f74a8;
+    --ice:#eaf4fb;
+    --white:#ffffff;
+    --orange-500:#f3872f;
+    --orange-400:#ff9f45;
+    --orange-100:#fff1e4;
+    --text-dark:#132433;
+    --text-mute:#5a7186;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(7,27,46,0.12);
+    --shadow-lg:0 20px 45px rgba(7,27,46,0.22);
+    font-size:16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text-dark);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Poppins',sans-serif; line-height:1.2;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .container{max-width:1140px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:transparent;
+    transition:background .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
+  }
+  header.scrolled{
+    background:rgba(7,27,46,0.85);
+    backdrop-filter:blur(12px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1200px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:1.3rem;
+    color:var(--white); letter-spacing:.5px;
+  }
+  .logo span{color:var(--orange-400);}
+  nav ul{display:flex; gap:28px;}
+  nav a{
+    color:var(--white); font-weight:500; font-size:.95rem; position:relative;
+    padding:6px 2px;
+  }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+    background:var(--orange-400); transition:width .3s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--orange-500); color:var(--white)!important; padding:10px 18px;
+    border-radius:50px; font-weight:600; transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .nav-cta:hover{background:var(--orange-400); box-shadow:0 8px 20px rgba(243,135,47,0.4); transform:translateY(-2px);}
+  .nav-cta::after{display:none;}
+  .menu-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-toggle span{width:26px; height:2px; background:var(--white); display:block;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(160deg, var(--blue-950), var(--blue-800) 60%, var(--blue-700));
+    color:var(--white);
+    padding:90px 24px 110px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:''; position:absolute; bottom:-2px; left:0; width:100%; height:60px;
+    background:var(--white);
+    clip-path:polygon(0 100%, 100% 100%, 100% 0, 0 60%);
+  }
+  .hero h1{font-size:clamp(2.1rem,5vw,3.2rem); font-weight:800; margin-bottom:18px;}
+  .hero p{font-size:1.15rem; color:#c8dcec; max-width:600px; margin:0 auto;}
+  .hero .accent{color:var(--orange-400);}
+
+  /* Section base */
+  .service-section{
+    padding:100px 24px 90px;
+    position:relative;
+  }
+  .service-section.blue{
+    background:var(--ice);
+  }
+  .service-section.dark{
+    background:linear-gradient(180deg, var(--blue-900), var(--blue-800));
+    color:var(--white);
+  }
+  .divider{
+    height:6px; width:100%;
+    background:repeating-linear-gradient(90deg, var(--orange-500) 0 40px, var(--orange-400) 40px 80px);
+    opacity:.9;
+  }
+  .service-grid{
+    max-width:1140px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;
+  }
+  .service-media img{
+    border-radius:var(--radius); box-shadow:var(--shadow-lg); width:100%; height:100%; object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .service-media{overflow:hidden; border-radius:var(--radius);}
+  .service-media:hover img{transform:scale(1.05);}
+  .service-section.dark .service-media img{box-shadow:0 20px 45px rgba(0,0,0,0.4);}
+  .tag{
+    display:inline-block; background:var(--orange-100); color:var(--orange-500);
+    font-weight:600; font-size:.8rem; padding:6px 14px; border-radius:50px;
+    text-transform:uppercase; letter-spacing:.06em; margin-bottom:16px;
+  }
+  .service-section.dark .tag{background:rgba(255,159,69,0.15); color:var(--orange-400);}
+  .service-content h2{font-size:2rem; margin-bottom:14px;}
+  .service-content > p{font-size:1.05rem; margin-bottom:22px; color:var(--text-mute);}
+  .service-section.dark .service-content > p{color:#b7cbdd;}
+  .bullet-list{margin-bottom:28px;}
+  .bullet-list li{
+    position:relative; padding-left:30px; margin-bottom:12px; font-size:.98rem;
+  }
+  .bullet-list li::before{
+    content:'✓'; position:absolute; left:0; top:0;
+    background:var(--orange-500); color:var(--white); width:20px; height:20px;
+    border-radius:50%; font-size:.7rem; display:flex; align-items:center; justify-content:center;
+  }
+  .faq{margin-bottom:30px;}
+  .faq-item{
+    border-bottom:1px solid rgba(0,0,0,0.08); padding:14px 0;
+  }
+  .service-section.dark .faq-item{border-color:rgba(255,255,255,0.15);}
+  .faq-item h3{font-size:1.02rem; margin-bottom:6px; color:var(--blue-700);}
+  .service-section.dark .faq-item h3{color:var(--orange-400);}
+  .faq-item p{font-size:.93rem; color:var(--text-mute);}
+  .service-section.dark .faq-item p{color:#b7cbdd;}
+
+  .btn{
+    display:inline-block; padding:14px 30px; border-radius:50px; font-weight:600;
+    font-size:.98rem; cursor:pointer; border:none; transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:var(--orange-500); color:var(--white);
+    box-shadow:0 8px 20px rgba(243,135,47,0.35);
+  }
+  .btn-primary:hover{background:var(--orange-400); box-shadow:0 14px 30px rgba(243,135,47,0.45); transform:translateY(-3px);}
+  .btn-primary:active{transform:scale(0.96) translateY(0); box-shadow:0 6px 14px rgba(243,135,47,0.4);}
+  .btn-outline{
+    background:transparent; border:2px solid var(--white); color:var(--white);
+  }
+  .btn-outline:hover{background:var(--white); color:var(--blue-900); transform:translateY(-3px);}
+  .btn-outline:active{transform:scale(0.96);}
+
+  /* Diagnostic Tool */
+  .diagnostic{
+    padding:100px 24px; background:var(--white); text-align:center;
+  }
+  .diagnostic h2{font-size:2.1rem; margin-bottom:10px;}
+  .diagnostic > p{color:var(--text-mute); max-width:600px; margin:0 auto 40px;}
+  .symptom-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px; max-width:1000px; margin:0 auto 36px;
+  }
+  .symptom-card{
+    background:var(--ice); border:2px solid transparent; border-radius:var(--radius);
+    padding:26px 20px; cursor:pointer; transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    font-weight:600; font-size:1rem;
+  }
+  .symptom-card:hover{transform:translateY(-5px); box-shadow:var(--shadow);}
+  .symptom-card.active{border-color:var(--orange-500); background:var(--orange-100);}
+  .symptom-card .icon{font-size:1.8rem; display:block; margin-bottom:10px;}
+  .diag-result{
+    max-width:600px; margin:0 auto; background:var(--blue-900); color:var(--white);
+    padding:30px; border-radius:var(--radius); box-shadow:var(--shadow-lg);
+    opacity:0; max-height:0; overflow:hidden; transition:opacity .4s ease, max-height .5s ease, padding .4s ease;
+  }
+  .diag-result.show{opacity:1; max-height:300px; padding:30px;}
+  .diag-result h3{color:var(--orange-400); margin-bottom:10px; font-size:1.3rem;}
+  .diag-result p{color:#c8dcec; margin-bottom:18px; font-size:.98rem;}
+
+  /* Closing CTA */
+  .closing-cta{
+    background:linear-gradient(120deg, var(--orange-500), var(--orange-400));
+    color:var(--white); text-align:center; padding:80px 24px;
+  }
+  .closing-cta h2{font-size:2.2rem; margin-bottom:12px;}
+  .closing-cta p{font-size:1.1rem; margin-bottom:32px; opacity:.95;}
+  .cta-buttons{display:flex; gap:18px; justify-content:center; flex-wrap:wrap;}
+  .closing-cta .btn-primary{background:var(--blue-900); box-shadow:0 8px 20px rgba(7,27,46,0.35);}
+  .closing-cta .btn-primary:hover{background:var(--blue-950); box-shadow:0 14px 30px rgba(7,27,46,0.45);}
+  .closing-cta .btn-outline{border-color:var(--white);}
+  .closing-cta .btn-outline:hover{background:var(--white); color:var(--orange-500);}
+
+  /* Footer */
+  footer{background:var(--blue-950); color:#b7cbdd; padding:60px 24px 30px;}
+  .footer-grid{
+    max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:36px; margin-bottom:40px;
+  }
+  .footer-grid h4{color:var(--white); margin-bottom:16px; font-family:'Poppins',sans-serif;}
+  .footer-grid ul li{margin-bottom:10px;}
+  .footer-grid a{transition:color .2s ease;}
+  .footer-grid a:hover{color:var(--orange-400);}
+  .footer-bottom{
+    max-width:1140px; margin:0 auto; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1);
+    text-align:center; font-size:.85rem; color:#7f97ab;
+  }
+
+  /* Scroll reveal */
+  .reveal{opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  @media (max-width:860px){
+    .service-grid{grid-template-columns:1fr;}
+    .service-media{order:-1;}
+    nav ul{
+      position:fixed; top:0; right:-100%; height:100vh; width:70%; max-width:320px;
+      background:var(--blue-950); flex-direction:column; padding:100px 30px; gap:26px;
+      transition:right .35s ease; box-shadow:-10px 0 30px rgba(0,0,0,0.3);
+    }
+    nav ul.open{right:0;}
+    .menu-toggle{display:flex;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Sun<span>State</span> AC</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul id="navList">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact-book-now.html" class="nav-cta">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1 class="reveal">Orlando AC Services <span class="accent">Done Right</span></h1>
+    <p class="reveal">Repair, installation, and maintenance from licensed local technicians — upfront pricing, fast response, no jargon, no surprises.</p>
+  </div>
+</section>
+
+<!-- REPAIR -->
+<section class="service-section blue" id="repair">
+  <div class="service-grid">
+    <div class="service-content reveal">
+      <span class="tag">AC Repair Orlando</span>
+      <h2>AC Repair</h2>
+      <p>When your air conditioner quits in Florida heat, you need a fix — not a runaround. Our techs diagnose the real problem fast, explain it in plain English, and repair it right the first time, including emergency AC repair Orlando homeowners call us for after hours.</p>
+      <ul class="bullet-list">
+        <li>Not cooling, blowing warm, or short-cycling</li>
+        <li>Strange noises, smells, or leaking water</li>
+        <li>Frozen coils, tripped breakers, or dead compressors</li>
+        <li>Same-day and emergency AC repair Orlando-wide</li>
+      </ul>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>How much does AC repair cost?</h3>
+          <p>Most repairs run $150–$650 depending on the part and unit. We diagnose first and give you a flat price before any work starts — no guessing.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How fast can someone come out?</h3>
+          <p>Same-day service is available most days, and we offer emergency AC repair in Orlando for nights and weekends when the heat can't wait.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I really need a repair, or can it wait?</h3>
+          <p>Warm air, ice on the lines, rising bills, or a unit that keeps shutting off are all signs to call now before a small issue becomes a full breakdown.</p>
+        </div>
+      </div>
+      <a href="contact-book-now.html#repair" class="btn btn-primary">Request This Service</a>
+    </div>
+    <div class="service-media reveal">
+      <img src="https://placehold.co/640x520?text=Technician+Repairing+AC+Unit" alt="HVAC technician repairing an outdoor AC condenser unit in Orlando">
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- INSTALLATION -->
+<section class="service-section dark" id="installation">
+  <div class="service-grid">
+    <div class="service-media reveal">
+      <img src="https://placehold.co/640x520?text=New+AC+System+Installation" alt="Technicians installing a new air conditioning system outside an Orlando home">
+    </div>
+    <div class="service-content reveal">
+      <span class="tag">AC Installation Orlando</span>
+      <h2>AC Installation</h2>
+      <p>Whether your system is beyond repair or you're upgrading for better efficiency, we handle air conditioning installation in Orlando from sizing to setup — matched to your home, not a one-size-fits-all box.</p>
+      <ul class="bullet-list">
+        <li>Correctly sized systems for Central Florida homes</li>
+        <li>Energy-efficient units that lower monthly bills</li>
+        <li>Full removal of your old unit, no mess left behind</li>
+        <li>Manufacturer warranties plus our workmanship guarantee</li>
+      </ul>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>How much does a new AC installation cost?</h3>
+          <p>Pricing depends on system size and efficiency, typically $4,500–$9,500 installed. We give you a firm, written quote before you commit to anything.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long does installation take?</h3>
+          <p>Most full installs are completed in a single day, so you're not without cool air any longer than necessary.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I know I need a replacement, not a repair?</h3>
+          <p>If your unit is 12+ years old, needs frequent repairs, or uses R-22 refrigerant, replacement usually saves more money long-term.</p>
+        </div>
+      </div>
+      <a href="contact-book-now.html#installation" class="btn btn-primary">Request This Service</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- MAINTENANCE -->
+<section class="service-section blue" id="maintenance">
+  <div class="service-grid">
+    <div class="service-content reveal">
+      <span class="tag">AC Maintenance Orlando FL</span>
+      <h2>AC Maintenance</h2>
+      <p>Routine AC maintenance in Orlando FL keeps small issues from becoming expensive breakdowns during our hottest months. Our tune-ups cover the full system, inside and out, so your AC runs efficiently all year.</p>
+      <ul class="bullet-list">
+        <li>Coil cleaning, refrigerant check, and electrical inspection</li>
+        <li>Lower energy bills and fewer surprise breakdowns</li>
+        <li>Extends the life of your system by years</li>
+        <li>Keeps manufacturer warranties valid</li>
+      </ul>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>How much does maintenance cost?</h3>
+          <p>Standard tune-ups start around $89, with discounted annual maintenance plans available for year-round coverage.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How often should I schedule maintenance?</h3>
+          <p>We recommend twice a year in Florida — once before summer, once before winter — to keep your system running at peak performance.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What signs mean I'm overdue?</h3>
+          <p>Rising energy bills, weak airflow, musty smells, or a unit that runs constantly are all signs a tune-up is overdue.</p>
+        </div>
+      </div>
+      <a href="contact-book-now.html#maintenance" class="btn btn-primary">Request This Service</a>
+    </div>
+    <div class="service-media reveal">
+      <img src="https://placehold.co/640x520?text=AC+Maintenance+Tune-Up" alt="HVAC technician performing routine AC maintenance and coil cleaning">
+    </div>
+  </div>
+</section>
+
+<!-- Diagnostic tool -->
+<section class="diagnostic">
+  <div class="wrap">
+    <h2 class="reveal">Not Sure Which Service You Need?</h2>
+    <p class="reveal">Tell us what's going on with your AC and we'll point you in the right direction.</p>
+    <div class="symptom-grid reveal">
+      <div class="symptom-card" data-result="repair"><span class="icon">🔥</span>My AC isn't cooling</div>
+      <div class="symptom-card" data-result="repair"><span class="icon">🔊</span>It's making odd noises</div>
+      <div class="symptom-card" data-result="installation"><span class="icon">📆</span>It's over 12 years old</div>
+      <div class="symptom-card" data-result="maintenance"><span class="icon">🧰</span>It just needs a check-up</div>
+    </div>
+    <div class="diag-result reveal" id="diagResult">
+      <h3 id="diagTitle"></h3>
+      <p id="diagText"></p>
+      <a href="#" id="diagLink" class="btn btn-primary">Request This Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- Closing CTA -->
+<section class="closing-cta reveal">
+  <div class="wrap">
+    <h2>Not sure what you need? We'll diagnose it fast.</h2>
+    <p>One call gets you a straight answer — repair, install, or maintenance — no upsells, no runaround.</p>
+    <div class="cta-buttons">
+      <a href="tel:+14075551234" class="btn btn-primary">📞 Call (407) 555-1234</a>
+      <a href="contact-book-now.html" class="btn btn-outline">Book Online</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>SunState AC</h4>
+      <p>Licensed, local HVAC technicians serving Orlando and the surrounding areas with honest, fast AC service.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact-book-now.html">Contact / Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+14075551234">(407) 555-1234</a></li>
+        <li><a href="mailto:info@sunstateac.com">info@sunstateac.com</a></li>
+        <li>Orlando, FL</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 SunState AC. All rights reserved.</div>
+</footer>
+
+<script>
+  // Sticky header on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  menuToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Diagnostic tool
+  const cards = document.querySelectorAll('.symptom-card');
+  const diagResult = document.getElementById('diagResult');
+  const diagTitle = document.getElementById('diagTitle');
+  const diagText = document.getElementById('diagText');
+  const diagLink = document.getElementById('diagLink');
+
+  const results = {
+    repair: {
+      title: 'Sounds like an AC Repair',
+      text: "That's a classic repair issue. Our techs can diagnose and fix it fast, often same-day.",
+      href: '#repair'
+    },
+    installation: {
+      title: 'Sounds like Time for Installation',
+      text: "Older systems often cost more to keep repairing than replacing. Let's talk about a new install.",
+      href: '#installation'
+    },
+    maintenance: {
+      title: 'Sounds like Maintenance',
+      text: "A routine tune-up will keep your system efficient and catch small problems early.",
+      href: '#maintenance'
+    }
+  };
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const key = card.dataset.result;
+      const data = results[key];
+      diagTitle.textContent = data.title;
+      diagText.textContent = data.text;
+      diagLink.setAttribute('href', 'contact-book-now.html' + data.href);
+      diagResult.classList.add('show');
+      diagResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+</script>
+</body>
+</html>
