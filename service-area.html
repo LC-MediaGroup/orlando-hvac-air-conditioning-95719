@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC Repair Service Area | Orlando & Nearby Cities</title>
+<meta name="description" content="Orlando HVAC Air Conditioning serves Orlando and surrounding neighborhoods with fast AC repair, installation, and maintenance. Check your area and book now.">
+<meta name="keywords" content="AC repair Orlando, HVAC contractor Orlando">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0b2545;
+    --blue:#13497a;
+    --blue-mid:#1c6ca8;
+    --blue-light:#e8f2fb;
+    --orange:#f4802a;
+    --orange-dark:#d9671a;
+    --ink:#102a43;
+    --gray:#5c7089;
+    --bg:#f7fafc;
+    --white:#ffffff;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(11,37,69,0.12);
+    --transition:0.25s cubic-bezier(.4,0,.2,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Poppins', sans-serif; line-height:1.2;}
+  img{max-width:100%; display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .container{width:100%; max-width:1180px; margin:0 auto; padding:0 24px;}
+  section{padding:80px 0;}
+
+  /* Header / Nav */
+  header.site-header{
+    position:sticky; top:0; z-index:1000;
+    background:rgba(255,255,255,0.0);
+    transition:background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+  }
+  header.site-header.scrolled{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(11,37,69,0.08);
+  }
+  .nav-wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:1.25rem;
+    color:var(--blue-deep); display:flex; align-items:center; gap:8px;
+  }
+  .logo span{color:var(--orange);}
+  nav.main-nav ul{display:flex; gap:6px;}
+  nav.main-nav a{
+    display:inline-block; padding:10px 16px; font-weight:600; font-size:0.95rem;
+    color:var(--blue-deep); border-radius:8px; position:relative;
+    transition:color var(--transition), background var(--transition);
+  }
+  nav.main-nav a:hover{background:var(--blue-light); color:var(--blue-mid);}
+  nav.main-nav a.active{color:var(--orange);}
+  .call-btn-header{
+    background:var(--orange); color:#fff; padding:10px 18px; border-radius:30px;
+    font-weight:600; font-size:0.9rem; transition:transform var(--transition), box-shadow var(--transition), background var(--transition);
+    white-space:nowrap;
+  }
+  .call-btn-header:hover{background:var(--orange-dark); box-shadow:0 8px 20px rgba(244,128,42,0.35); transform:translateY(-2px);}
+  .menu-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-toggle span{width:26px; height:3px; background:var(--blue-deep); border-radius:2px;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg, var(--blue-deep), var(--blue));
+    color:#fff; padding:100px 0 90px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; width:500px; height:500px; background:radial-gradient(circle, rgba(244,128,42,0.25), transparent 70%);
+    top:-200px; right:-150px;
+  }
+  .hero h1{font-size:clamp(2rem, 5vw, 3.2rem); margin-bottom:18px; position:relative;}
+  .hero p{font-size:1.15rem; max-width:640px; margin:0 auto; color:#dce8f7; position:relative;}
+  .hero .badge{
+    display:inline-block; background:rgba(244,128,42,0.15); color:var(--orange);
+    border:1px solid rgba(244,128,42,0.4); padding:6px 16px; border-radius:20px;
+    font-weight:600; font-size:0.85rem; margin-bottom:20px; letter-spacing:0.5px;
+  }
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  /* Map section */
+  .map-section{background:var(--white);}
+  .section-heading{text-align:center; max-width:700px; margin:0 auto 40px;}
+  .section-heading h2{font-size:clamp(1.6rem,3.5vw,2.3rem); color:var(--blue-deep); margin-bottom:12px;}
+  .section-heading p{color:var(--gray); font-size:1.05rem;}
+
+  .map-wrap{
+    position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+    border:6px solid var(--white); outline:2px solid var(--blue-light);
+  }
+  .map-wrap img{width:100%; display:block; filter:saturate(0.85) contrast(1.02);}
+  .pin{
+    position:absolute; width:34px; height:34px; transform:translate(-50%,-100%); cursor:pointer;
+  }
+  .pin svg{width:100%; height:100%; filter:drop-shadow(0 4px 6px rgba(0,0,0,0.35));}
+  .pin .dot{transition:transform var(--transition);}
+  .pin:hover .dot, .pin.active .dot{transform:scale(1.15);}
+  .pin-tooltip{
+    position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(6px);
+    background:var(--blue-deep); color:#fff; padding:8px 12px; border-radius:8px; font-size:0.8rem;
+    white-space:nowrap; opacity:0; pointer-events:none; transition:opacity var(--transition), transform var(--transition);
+    font-weight:600;
+  }
+  .pin-tooltip::after{
+    content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+    border:6px solid transparent; border-top-color:var(--blue-deep);
+  }
+  .pin:hover .pin-tooltip, .pin.active .pin-tooltip{opacity:1; transform:translateX(-50%) translateY(0);}
+  .map-caption{text-align:center; margin-top:16px; color:var(--gray); font-size:0.9rem;}
+
+  /* Neighborhood grid */
+  .neighborhoods{background:var(--bg);}
+  .check-bar{
+    max-width:480px; margin:0 auto 40px; position:relative;
+  }
+  .check-bar input{
+    width:100%; padding:14px 20px 14px 46px; border-radius:30px; border:2px solid var(--blue-light);
+    font-size:1rem; font-family:inherit; transition:border-color var(--transition), box-shadow var(--transition);
+    background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2313497a" viewBox="0 0 24 24"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42-1.39ZM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7Z"/></svg>') no-repeat 16px center;
+    background-size:18px;
+  }
+  .check-bar input:focus{outline:none; border-color:var(--orange); box-shadow:0 0 0 4px rgba(244,128,42,0.15);}
+
+  .neighborhood-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px;
+  }
+  .n-card{
+    background:#fff; border-radius:var(--radius); padding:22px; box-shadow:0 4px 14px rgba(11,37,69,0.06);
+    border:1px solid #e8eef5; transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    display:flex; align-items:center; gap:14px;
+  }
+  .n-card:hover{transform:translateY(-6px); box-shadow:0 14px 28px rgba(11,37,69,0.14); border-color:var(--orange);}
+  .n-card .icon{
+    width:42px; height:42px; flex:0 0 42px; border-radius:50%; background:var(--blue-light);
+    display:flex; align-items:center; justify-content:center; color:var(--orange); font-size:1.2rem;
+  }
+  .n-card h3{font-size:1.05rem; color:var(--blue-deep); margin-bottom:2px;}
+  .n-card span{font-size:0.85rem; color:var(--gray);}
+  .n-card.hidden{display:none;}
+  .no-results{text-align:center; color:var(--gray); padding:30px; display:none;}
+  .no-results.show{display:block;}
+
+  /* trust line */
+  .trust-line{
+    background:linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color:#fff; text-align:center; padding:44px 24px;
+  }
+  .trust-line h3{font-size:1.4rem; margin-bottom:8px;}
+  .trust-line a{text-decoration:underline; font-weight:700;}
+
+  /* photos */
+  .photos{background:var(--white);}
+  .photo-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px;
+  }
+  .photo-card{
+    border-radius:var(--radius); overflow:hidden; position:relative; box-shadow:var(--shadow);
+  }
+  .photo-card img{width:100%; height:260px; object-fit:cover; transition:transform 0.5s ease;}
+  .photo-card:hover img{transform:scale(1.08);}
+  .photo-caption{
+    position:absolute; bottom:0; left:0; right:0; padding:16px;
+    background:linear-gradient(to top, rgba(11,37,69,0.85), transparent);
+    color:#fff; font-weight:600; font-size:0.95rem;
+  }
+
+  /* CTA */
+  .cta-section{
+    background:linear-gradient(135deg, var(--blue-deep), var(--blue));
+    color:#fff; text-align:center; padding:90px 24px; position:relative; overflow:hidden;
+  }
+  .cta-section::before{
+    content:""; position:absolute; width:400px; height:400px; background:radial-gradient(circle, rgba(244,128,42,0.2), transparent 70%);
+    bottom:-150px; left:-100px;
+  }
+  .cta-section h2{font-size:clamp(1.7rem,4vw,2.4rem); margin-bottom:14px; position:relative;}
+  .cta-section p{color:#dce8f7; margin-bottom:30px; position:relative;}
+  .cta-buttons{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; position:relative;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:30px; font-weight:700;
+    font-size:1rem; cursor:pointer; border:none; transition:transform var(--transition), box-shadow var(--transition), background var(--transition);
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn-primary{background:var(--orange); color:#fff;}
+  .btn-primary:hover{background:var(--orange-dark); box-shadow:0 10px 24px rgba(244,128,42,0.4); transform:translateY(-3px);}
+  .btn-outline{background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.6);}
+  .btn-outline:hover{background:rgba(255,255,255,0.12); border-color:#fff; transform:translateY(-3px);}
+
+  /* Footer */
+  footer{background:var(--blue-deep); color:#cdd9e8; padding:50px 24px 24px;}
+  .footer-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:30px; max-width:1180px; margin:0 auto 30px;
+  }
+  .footer-grid h4{color:#fff; margin-bottom:14px; font-family:'Poppins',sans-serif;}
+  .footer-grid ul li{margin-bottom:8px;}
+  .footer-grid a{color:#cdd9e8; transition:color var(--transition);}
+  .footer-grid a:hover{color:var(--orange);}
+  .footer-bottom{text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.85rem; color:#8fa2ba; max-width:1180px; margin:0 auto;}
+
+  @media (max-width:860px){
+    nav.main-nav{
+      position:fixed; top:70px; right:0; height:calc(100vh - 70px); width:260px; background:#fff;
+      flex-direction:column; padding:24px; transform:translateX(100%); transition:transform var(--transition);
+      box-shadow:-10px 0 30px rgba(0,0,0,0.1);
+    }
+    nav.main-nav.open{transform:translateX(0);}
+    nav.main-nav ul{flex-direction:column; gap:4px;}
+    .menu-toggle{display:flex;}
+    .call-btn-header{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">Orlando<span>Air</span> HVAC</a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html" class="active">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact-book-now.html">Contact / Book Now</a></li>
+      </ul>
+    </nav>
+    <a href="tel:14075551234" class="call-btn-header">📞 (407) 555-1234</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="badge">LOCALLY OWNED &amp; OPERATED</span>
+    <h1>Proudly Serving Orlando &amp; Surrounding Areas</h1>
+    <p>Fast, local response across Central Florida — most calls answered same-day, because our trucks are already in your neighborhood.</p>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Our Coverage Radius</h2>
+      <p>Hover the pins to see neighborhoods we roll trucks to every single day.</p>
+    </div>
+    <div class="map-wrap reveal">
+      <img src="https://placehold.co/1200x600/1c6ca8/e8f2fb?text=Orlando+Service+Area+Map" alt="Map of Orlando and surrounding service area with coverage radius highlighted">
+      <div class="pin" style="top:38%; left:48%;">
+        <div class="pin-tooltip">Orlando — HQ, 24/7 dispatch</div>
+        <svg class="dot" viewBox="0 0 24 24" fill="#f4802a"><path d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+      <div class="pin" style="top:28%; left:52%;">
+        <div class="pin-tooltip">Winter Park — ~15 min response</div>
+        <svg class="dot" viewBox="0 0 24 24" fill="#f4802a"><path d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+      <div class="pin" style="top:60%; left:58%;">
+        <div class="pin-tooltip">Lake Nona — ~20 min response</div>
+        <svg class="dot" viewBox="0 0 24 24" fill="#f4802a"><path d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+      <div class="pin" style="top:66%; left:40%;">
+        <div class="pin-tooltip">Kissimmee — ~25 min response</div>
+        <svg class="dot" viewBox="0 0 24 24" fill="#f4802a"><path d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+      <div class="pin" style="top:45%; left:22%;">
+        <div class="pin-tooltip">Windermere — ~18 min response</div>
+        <svg class="dot" viewBox="0 0 24 24" fill="#f4802a"><path d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+      <div class="pin" style="top:18%; left:26%;">
+        <div class="pin-tooltip">Altamonte Springs — ~20 min response</div>
+        <svg class="dot" viewBox="0 0 24 24" fill="#f4802a"><path d="M12 0C7 0 3 4 3 9c0 6.5 9 15 9 15s9-8.5 9-15c0-5-4-9-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+    </div>
+    <p class="map-caption reveal">Blue zone = our standard same-day coverage radius from our Orlando dispatch center.</p>
+  </div>
+</section>
+
+<section class="neighborhoods">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Neighborhoods We Serve</h2>
+      <p>Start typing your city or neighborhood to confirm we cover you.</p>
+    </div>
+    <div class="check-bar reveal">
+      <input type="text" id="areaSearch" placeholder="Search your neighborhood (e.g., Winter Park)">
+    </div>
+    <div class="neighborhood-grid" id="neighborhoodGrid">
+      <div class="n-card reveal" data-name="orlando"><div class="icon">📍</div><div><h3>Orlando</h3><span>Same-day coverage</span></div></div>
+      <div class="n-card reveal" data-name="winter park"><div class="icon">📍</div><div><h3>Winter Park</h3><span>~15 min response</span></div></div>
+      <div class="n-card reveal" data-name="kissimmee"><div class="icon">📍</div><div><h3>Kissimmee</h3><span>~25 min response</span></div></div>
+      <div class="n-card reveal" data-name="lake nona"><div class="icon">📍</div><div><h3>Lake Nona</h3><span>~20 min response</span></div></div>
+      <div class="n-card reveal" data-name="dr. phillips"><div class="icon">📍</div><div><h3>Dr. Phillips</h3><span>~18 min response</span></div></div>
+      <div class="n-card reveal" data-name="windermere"><div class="icon">📍</div><div><h3>Windermere</h3><span>~18 min response</span></div></div>
+      <div class="n-card reveal" data-name="altamonte springs"><div class="icon">📍</div><div><h3>Altamonte Springs</h3><span>~20 min response</span></div></div>
+      <div class="n-card reveal" data-name="apopka"><div class="icon">📍</div><div><h3>Apopka</h3><span>~22 min response</span></div></div>
+      <div class="n-card reveal" data-name="oviedo"><div class="icon">📍</div><div><h3>Oviedo</h3><span>~24 min response</span></div></div>
+      <div class="n-card reveal" data-name="maitland"><div class="icon">📍</div><div><h3>Maitland</h3><span>~15 min response</span></div></div>
+      <div class="n-card reveal" data-name="ocoee"><div class="icon">📍</div><div><h3>Ocoee</h3><span>~20 min response</span></div></div>
+      <div class="n-card reveal" data-name="belle isle"><div class="icon">📍</div><div><h3>Belle Isle</h3><span>~17 min response</span></div></div>
+    </div>
+    <p class="no-results" id="noResults">No exact match — but don't worry, give us a call and we'll confirm coverage for you.</p>
+  </div>
+</section>
+
+<div class="trust-line reveal">
+  <h3>Don't see your area listed?</h3>
+  <p>Call us — we likely still cover it. <a href="tel:14075551234">(407) 555-1234</a></p>
+</div>
+
+<section class="photos">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Real Jobs, Right Here in Central Florida</h2>
+      <p>No stock photos — this is our crew, on real Orlando-area rooftops and driveways.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card reveal">
+        <img src="https://placehold.co/500x350/13497a/ffffff?text=Winter+Park+Install" alt="Technician installing an AC unit at a home in Winter Park">
+        <div class="photo-caption">New system install — Winter Park</div>
+      </div>
+      <div class="photo-card reveal">
+        <img src="https://placehold.co/500x350/1c6ca8/ffffff?text=Lake+Nona+Repair" alt="Technician repairing an outdoor condenser unit in Lake Nona">
+        <div class="photo-caption">Emergency repair — Lake Nona</div>
+      </div>
+      <div class="photo-card reveal">
+        <img src="https://placehold.co/500x350/0b2545/ffffff?text=Kissimmee+Maintenance" alt="Technician performing seasonal maintenance on AC unit in Kissimmee">
+        <div class="photo-caption">Seasonal tune-up — Kissimmee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="reveal">Request Service in Your Neighborhood</h2>
+    <p class="reveal">Tell us where you are — we'll confirm coverage and get a tech scheduled fast.</p>
+    <div class="cta-buttons reveal">
+      <a href="contact-book-now.html" class="btn btn-primary">Request Service</a>
+      <a href="tel:14075551234" class="btn btn-outline">📞 Call (407) 555-1234</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Orlando Air HVAC</h4>
+      <p>Locally owned AC repair, installation &amp; maintenance serving Orlando and Central Florida.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-area.html">Service Area</a></li>
+        <li><a href="reviews-testimonials.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact-book-now.html">Contact / Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:14075551234">(407) 555-1234</a></li>
+        <li><a href="mailto:info@orlandoairhvac.com">info@orlandoairhvac.com</a></li>
+        <li>Orlando, FL</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2024 Orlando Air HVAC. All rights reserved.</div>
+</footer>
+
+<script>
+  // Sticky header blur
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+  menuToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('open');
+  });
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+
+  // Neighborhood search filter
+  const searchInput = document.getElementById('areaSearch');
+  const cards = document.querySelectorAll('.n-card');
+  const noResults = document.getElementById('noResults');
+  searchInput.addEventListener('input', () => {
+    const val = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+    cards.forEach(card => {
+      const match = card.dataset.name.includes(val);
+      card.classList.toggle('hidden', !match);
+      if (match) anyVisible = true;
+    });
+    noResults.classList.toggle('show', !anyVisible);
+  });
+
+  // Map pin tap toggle for touch devices
+  document.querySelectorAll('.pin').forEach(pin => {
+    pin.addEventListener('click', () => {
+      document.querySelectorAll('.pin').forEach(p => { if(p !== pin) p.classList.remove('active'); });
+      pin.classList.toggle('active');
+    });
+  });
+</script>
+</body>
+</html>
